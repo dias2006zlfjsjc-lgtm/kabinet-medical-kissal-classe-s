@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1A5C8A">
+  <title>Kabinet Medical Kissal</title>
+
+  <!-- Feuilles CSS séparées -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/urgence.css">
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1 — ACCUEIL
+     ============================================================ -->
+<main>
+
+<div id="p-accueil" class="page active">
+
+  <div class="hero">
+    <div class="hero-logo animate-fadeup">
+      <div class="hero-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#1A5C8A" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <span>Kabinet Medical Kissal</span>
+    </div>
+    <h1 class="animate-fadeup delay-1">Votre santé,<br>notre <em>priorité.</em></h1>
+    <p class="hero-subtitle animate-fadeup delay-2">Des soins de qualité, accessibles et à l'écoute de chaque patient, 7 jours sur 7.</p>
+    <div class="hero-actions animate-fadeup delay-3">
+      <button class="btn-rdv" onclick="switchPage('p-rdv')">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2" stroke-linecap="round"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="2" stroke-linecap="round"/></svg>
+        Prendre rendez-vous
+      </button>
+      <button class="btn-urgence-hero" onclick="switchPage('p-urgence')">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke-width="2.5" stroke-linecap="round"/></svg>
+        Urgence
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-strip">
+    <div class="stat-item animate-fadeup delay-2">
+      <div class="stat-num">500+</div>
+      <div class="stat-lbl">Patients suivis</div>
+    </div>
+    <div class="stat-item animate-fadeup delay-3">
+      <div class="stat-num">6</div>
+      <div class="stat-lbl">Spécialistes</div>
+    </div>
+    <div class="stat-item animate-fadeup delay-4">
+      <div class="stat-num">7j/7</div>
+      <div class="stat-lbl">Disponible</div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section-head">
+    <h2>Nos services</h2>
+    <a onclick="switchPage('p-services')">Voir tout ›</a>
+  </div>
+  <div class="services-home-grid">
+    <div class="svc-home-card" onclick="openServiceDrawer('consultation')">
+      <div class="svc-home-icon b">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#1A5C8A" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="#1A5C8A" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Consultation générale</h3>
+      <span class="svc-arrow">Voir détails ›</span>
+    </div>
+    <div class="svc-home-card" onclick="openServiceDrawer('pediatrie')">
+      <div class="svc-home-icon v">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-4.97 0-9-2.686-9-6v-3c0-3.314 4.03-6 9-6s9 2.686 9 6v3c0 3.314-4.03 6-9 6z" stroke="#2A9D6B" stroke-width="1.8"/><path d="M12 6V3" stroke="#2A9D6B" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Pédiatrie</h3>
+      <span class="svc-arrow">Voir détails ›</span>
+    </div>
+    <div class="svc-home-card" onclick="openServiceDrawer('cardiologie')">
+      <div class="svc-home-icon r">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z" stroke="#DC2626" stroke-width="1.8"/></svg>
+      </div>
+      <h3>Cardiologie</h3>
+      <span class="svc-arrow">Voir détails ›</span>
+    </div>
+    <div class="svc-home-card" onclick="openServiceDrawer('gynecologie')">
+      <div class="svc-home-icon o">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="5" stroke="#EA580C" stroke-width="1.8"/><path d="M12 14v7M9 18h6" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Gynécologie</h3>
+      <span class="svc-arrow">Voir détails ›</span>
+    </div>
+  </div>
+
+  <!-- Médecins (extrait) -->
+  <div class="section-head">
+    <h2>Nos médecins</h2>
+    <a onclick="switchPage('p-medecins')">Voir tout ›</a>
+  </div>
+  <div id="medecins-mini-list">
+    <div class="medecin-mini" onclick="switchPage('p-medecins')">
+      <div class="avatar-sm a-bleu">DK</div>
+      <div><h3>Dr. Kissal</h3><p class="spec-mini">Médecin généraliste</p></div>
+      <span class="dispo-indicator" style="margin-left:auto;">Disponible</span>
+    </div>
+    <div class="medecin-mini" onclick="switchPage('p-medecins')">
+      <div class="avatar-sm a-vert">FA</div>
+      <div><h3>Dr. Fatima Aidara</h3><p class="spec-mini">Pédiatre</p></div>
+      <span class="dispo-indicator" style="margin-left:auto;">Disponible</span>
+    </div>
+    <div class="medecin-mini" onclick="switchPage('p-medecins')">
+      <div class="avatar-sm a-rouge">MB</div>
+      <div><h3>Dr. Moussa Ba</h3><p class="spec-mini">Cardiologue</p></div>
+      <span class="dispo-indicator indispo" style="margin-left:auto;">Mar & Jeu</span>
+    </div>
+  </div>
+  <div style="height:16px;"></div>
+</div>
+
+<!-- ============================================================
+     PAGE 2 — À PROPOS
+     ============================================================ -->
+<div id="p-apropos" class="page">
+  <div class="page-header">
+    <div class="label">Qui sommes-nous</div>
+    <h2>À propos</h2>
+    <p>Une clinique fondée sur la confiance et l'excellence médicale.</p>
+  </div>
+  <div class="apropos-content">
+    <div class="quote-card">
+      <blockquote>"Soigner avec compétence, accompagner avec humanité."</blockquote>
+    </div>
+    <div class="prose-card">
+      <strong>Kabinet Medical Kissal</strong> est une clinique médicale moderne dédiée à offrir des soins de haute qualité à toute la population. Fondée avec la vision de rendre les soins accessibles, notre équipe pluridisciplinaire s'engage chaque jour pour votre bien-être et celui de votre famille.
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;padding:4px 0 0;">Nos valeurs</h3>
+    <div class="valeurs-grid">
+      <div class="valeur-card">
+        <div class="valeur-icon" style="background:var(--rouge-clair);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 0112 5.09 5.5 5.5 0 0122 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="#DC2626" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Compassion</h3>
+        <p>Chaque patient est traité avec bienveillance</p>
+      </div>
+      <div class="valeur-card">
+        <div class="valeur-icon" style="background:var(--bleu-clair);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.047-.14-2.062-.382-3.016z" stroke="#1A5C8A" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Excellence</h3>
+        <p>Soins et équipements de niveau professionnel</p>
+      </div>
+      <div class="valeur-card">
+        <div class="valeur-icon" style="background:var(--vert-clair);">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2A9D6B" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="#2A9D6B" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Rapidité</h3>
+        <p>Délais minimisés, réponse immédiate</p>
+      </div>
+      <div class="valeur-card">
+        <div class="valeur-icon" style="background:var(--violet-clair);">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Équipe</h3>
+        <p>Professionnels qualifiés et dévoués</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 3 — SERVICES
+     ============================================================ -->
+<div id="p-services" class="page">
+  <div class="page-header">
+    <div class="label">Ce que nous offrons</div>
+    <h2>Nos services</h2>
+    <p>Cliquez sur un service pour voir les détails et prendre rendez-vous.</p>
+  </div>
+  <div class="service-list">
+    <div class="svc-row" onclick="openServiceDrawer('consultation')">
+      <div class="svc-row-icon b"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#1A5C8A" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="#1A5C8A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="svc-row-info"><h3>Consultation générale</h3><p>Médecin généraliste disponible 7j/7</p><span class="prix">5 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="svc-row" onclick="openServiceDrawer('pediatrie')">
+      <div class="svc-row-icon v"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-4.97 0-9-2.686-9-6v-3c0-3.314 4.03-6 9-6s9 2.686 9 6v3c0 3.314-4.03 6-9 6z" stroke="#2A9D6B" stroke-width="1.8"/><path d="M12 6V3" stroke="#2A9D6B" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="svc-row-info"><h3>Pédiatrie</h3><p>Soins dédiés aux enfants de 0 à 16 ans</p><span class="prix">6 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="svc-row" onclick="openServiceDrawer('cardiologie')">
+      <div class="svc-row-icon r"><svg viewBox="0 0 24 24" fill="none"><path d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z" stroke="#DC2626" stroke-width="1.8"/></svg></div>
+      <div class="svc-row-info"><h3>Cardiologie</h3><p>ECG, suivi tensionnel, douleurs thoraciques</p><span class="prix">10 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="svc-row" onclick="openServiceDrawer('biologie')">
+      <div class="svc-row-icon b"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12h6M9 16h4M5 4h14a1 1 0 011 1v16l-3-2-3 2-3-2-3 2-3-2V5a1 1 0 011-1z" stroke="#1A5C8A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="svc-row-info"><h3>Analyses biologiques</h3><p>Bilan sanguin, urinaire — résultats 24h</p><span class="prix">dès 3 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="svc-row" onclick="openServiceDrawer('gynecologie')">
+      <div class="svc-row-icon p"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9" r="5" stroke="#7C3AED" stroke-width="1.8"/><path d="M12 14v7M9 18h6" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="svc-row-info"><h3>Gynécologie</h3><p>Suivi grossesse, contraception, frottis</p><span class="prix">8 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div class="svc-row" onclick="openServiceDrawer('echographie')">
+      <div class="svc-row-icon o"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#EA580C" stroke-width="1.8"/><path d="M21 21l-2-2" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div class="svc-row-info"><h3>Échographie</h3><p>Imagerie médicale abdominale et obstétricale</p><span class="prix">12 000 FCFA</span></div>
+      <svg class="svc-row-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 4 — MÉDECINS
+     ============================================================ -->
+<div id="p-medecins" class="page">
+  <div class="page-header">
+    <div class="label">Notre équipe</div>
+    <h2>Les médecins</h2>
+    <p>Des professionnels qualifiés à votre écoute.</p>
+  </div>
+  <div class="medecins-list">
+    <div class="medecin-card">
+      <div class="avatar-lg a-bleu">DK</div>
+      <div style="flex:1;">
+        <h3>Dr. Kissal</h3>
+        <span class="spec-tag">Médecin généraliste</span>
+        <p class="jours"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg> Lun – Sam</p>
+        <span class="dispo-indicator" style="margin-top:6px;display:flex;">Disponible aujourd'hui</span>
+      </div>
+      <button class="btn-prendre-rdv-med" onclick="rdvMedecinPreset=0;switchPage('p-rdv')">RDV</button>
+    </div>
+    <div class="medecin-card">
+      <div class="avatar-lg a-vert">FA</div>
+      <div style="flex:1;">
+        <h3>Dr. Fatima Aidara</h3>
+        <span class="spec-tag" style="background:var(--vert-clair);color:var(--vert-fonce);">Pédiatre</span>
+        <p class="jours"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg> Lun – Ven</p>
+        <span class="dispo-indicator" style="margin-top:6px;display:flex;">Disponible demain</span>
+      </div>
+      <button class="btn-prendre-rdv-med" onclick="rdvMedecinPreset=1;switchPage('p-rdv')">RDV</button>
+    </div>
+    <div class="medecin-card">
+      <div class="avatar-lg a-rouge">MB</div>
+      <div style="flex:1;">
+        <h3>Dr. Moussa Ba</h3>
+        <span class="spec-tag" style="background:var(--rouge-clair);color:var(--rouge);">Cardiologue</span>
+        <p class="jours"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg> Mar & Jeu</p>
+        <span class="dispo-indicator indispo" style="margin-top:6px;display:flex;">Prochain : Mardi</span>
+      </div>
+      <button class="btn-prendre-rdv-med" onclick="rdvMedecinPreset=2;switchPage('p-rdv')">RDV</button>
+    </div>
+    <div class="medecin-card">
+      <div class="avatar-lg a-orange">AN</div>
+      <div style="flex:1;">
+        <h3>Dr. Aïssatou Ndiaye</h3>
+        <span class="spec-tag" style="background:var(--orange-clair);color:var(--orange);">Gynécologue</span>
+        <p class="jours"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg> Lun, Mer & Ven</p>
+        <span class="dispo-indicator" style="margin-top:6px;display:flex;">Disponible aujourd'hui</span>
+      </div>
+      <button class="btn-prendre-rdv-med" onclick="rdvMedecinPreset=3;switchPage('p-rdv')">RDV</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 5 — RENDEZ-VOUS
+     ============================================================ -->
+<div id="p-rdv" class="page">
+  <div class="page-header">
+    <div class="label">En ligne, rapide & simple</div>
+    <h2>Prendre rendez-vous</h2>
+    <p>Remplissez le formulaire ci-dessous, nous confirmons sous 30 min.</p>
+  </div>
+
+  <div id="rdv-form-content">
+    <div class="form-container">
+
+      <!-- Infos patient -->
+      <div class="f-group">
+        <label class="f-label">Votre nom complet</label>
+        <div class="f-input-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="nom-input" class="f-input" type="text" placeholder="Ex : Moussa Diallo" oninput="updateRecap()">
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label class="f-label">Numéro de téléphone</label>
+        <div class="f-input-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="1.8"/></svg>
+          <input id="tel-input" class="f-input" type="tel" placeholder="+221 77 000 00 00">
+        </div>
+      </div>
+
+      <!-- Choisir médecin -->
+      <div class="f-group">
+        <label class="f-label">Choisir un médecin</label>
+        <div id="medecin-picker" class="medecin-picker"></div>
+      </div>
+
+      <!-- Date et heure -->
+      <div class="date-row">
+        <div class="f-group">
+          <label class="f-label">Date</label>
+          <input id="date-input" class="f-input" type="date" onchange="updateRecap()">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Heure</label>
+          <select class="f-select" onchange="selectedCreneau=this.value;updateRecap()">
+            <option value="08h00">08h00</option>
+            <option value="09h30">09h30</option>
+            <option value="11h00">11h00</option>
+            <option value="14h00">14h00</option>
+            <option value="15h30">15h30</option>
+            <option value="17h00">17h00</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Motif -->
+      <div class="f-group">
+        <label class="f-label">Motif de consultation</label>
+        <textarea id="motif-input" class="f-input f-textarea" placeholder="Décrivez brièvement votre motif de consultation..." oninput="updateRecap()"></textarea>
+      </div>
+
+      <!-- Récapitulatif -->
+      <div class="recap-card">
+        <div class="recap-title">Récapitulatif</div>
+        <div class="recap-row"><span class="k">Patient</span><span class="v" id="recap-nom">—</span></div>
+        <div class="recap-row"><span class="k">Médecin</span><span class="v" id="recap-med">—</span></div>
+        <div class="recap-row"><span class="k">Date</span><span class="v" id="recap-date">—</span></div>
+        <div class="recap-row"><span class="k">Heure</span><span class="v" id="recap-heure">—</span></div>
+        <div class="recap-row"><span class="k">Motif</span><span class="v" id="recap-motif">—</span></div>
+      </div>
+
+      <button class="btn-confirmer" onclick="confirmerRDV()">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Confirmer le rendez-vous
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Écran succès -->
+  <div id="rdv-success" class="success-screen">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3>Demande envoyée !</h3>
+    <p>Votre demande de rendez-vous a bien été enregistrée. Nous vous confirmons par SMS sous 30 minutes.</p>
+    <button class="btn-retour" onclick="switchPage('p-accueil')">← Retour à l'accueil</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 6 — CONTACT
+     ============================================================ -->
+<div id="p-contact" class="page">
+  <div class="page-header">
+    <div class="label">Nous trouver</div>
+    <h2>Contact</h2>
+    <p>Nous sommes là pour vous, n'hésitez pas à nous appeler.</p>
+  </div>
+  <div class="contact-content">
+    <div class="contact-row">
+      <div class="contact-icon b"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="#1A5C8A" stroke-width="1.8"/></svg></div>
+      <div><h4>Téléphone</h4><p>+221 77 123 45 67</p></div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon v"><svg viewBox="0 0 24 24" fill="none"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="#2A9D6B" stroke-width="1.8"/><circle cx="12" cy="11" r="3" stroke="#2A9D6B" stroke-width="1.8"/></svg></div>
+      <div><h4>Adresse</h4><p>Rue Kissal, Quartier Médical</p></div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon b"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#1A5C8A" stroke-width="1.8"/></svg></div>
+      <div><h4>Email</h4><p>contact@kissal-medical.sn</p></div>
+    </div>
+    <div class="map-frame">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="#1A5C8A" stroke-width="1.5"/><circle cx="12" cy="11" r="3" stroke="#1A5C8A" stroke-width="1.5"/></svg>
+      <span>Voir sur Google Maps</span>
+    </div>
+    <div class="horaires-block">
+      <h3>Horaires d'ouverture</h3>
+      <div class="heure-row"><span class="jour">Lundi – Vendredi</span><span class="h">07h30 – 18h00</span></div>
+      <div class="heure-row"><span class="jour">Samedi</span><span class="h">08h00 – 15h00</span></div>
+      <div class="heure-row"><span class="jour">Dimanche</span><span class="ferme">Urgences uniquement</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 7 — URGENCES
+     ============================================================ -->
+<div id="p-urgence" class="page">
+  <div class="urgence-hero">
+    <div class="pulse-wrapper">
+      <div class="pulse-ring-1"></div>
+      <div class="pulse-ring-2"></div>
+      <div class="pulse-circle">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <h2>Urgences médicales</h2>
+    <p>En cas d'urgence, appelez immédiatement.<br>Nous sommes disponibles 24h/24.</p>
+    <button class="btn-tel-urgence">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="#DC2626" stroke-width="2"/></svg>
+      +221 77 911 00 00
+    </button>
+  </div>
+
+  <div class="urgence-body">
+    <div class="urgence-contacts">
+      <div class="urg-contact">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="1.8"/></svg>
+        <div><h4>Clinique Kissal — Urgences</h4><p>+221 77 911 00 00 — 24h/24</p></div>
+      </div>
+      <div class="urg-contact">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="1.8"/></svg>
+        <div><h4>SAMU National</h4><p>15 — Numéro d'urgence gratuit</p></div>
+      </div>
+    </div>
+
+    <p class="urgence-section-label">Que faire en attendant ?</p>
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div><h3>Restez calme</h3><p>Évaluez calmement la situation et sécurisez l'environnement.</p></div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div><h3>Appelez immédiatement</h3><p>Décrivez clairement les symptômes, l'âge du patient et votre localisation.</p></div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div><h3>Ne déplacez pas le patient</h3><p>Sauf en cas de danger immédiat dans l'environnement (incendie, etc.).</p></div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div><h3>Suivez les instructions</h3><p>Le médecin ou l'opérateur vous guidera par téléphone jusqu'à l'arrivée des secours.</p></div>
+    </div>
+
+    <div class="alert-card">
+      <h4>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke-width="1.8" stroke-linecap="round"/></svg>
+        À ne pas faire
+      </h4>
+      <ul class="alert-list">
+        <li>Ne donnez pas de médicaments sans avis médical</li>
+        <li>Ne laissez pas le patient seul s'il est inconscient</li>
+        <li>N'essayez pas de faire vomir en cas d'intoxication</li>
+        <li>Ne retirez pas un objet incrusté dans une plaie</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ============================================================
+     DRAWER — DÉTAIL SERVICE
+     ============================================================ -->
+<div id="drawer-overlay" class="drawer-overlay"></div>
+<div id="service-drawer" class="drawer">
+  <div class="drawer-handle"></div>
+  <div class="drawer-header">
+    <div id="drawer-icon-wrap" class="drawer-header-icon">
+      <svg id="drawer-icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <h3 id="drawer-nom">Service</h3>
+      <p id="drawer-desc">Description du service.</p>
+    </div>
+  </div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-section">
+    <h4>Informations</h4>
+    <div class="info-row">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4M12 16h.01M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Tarif</span><strong id="drawer-prix">—</strong>
+    </div>
+    <div class="info-row">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Durée</span><strong id="drawer-duree">—</strong>
+    </div>
+    <div class="info-row">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Médecin</span><strong id="drawer-medecin">—</strong>
+    </div>
+    <div class="info-row">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Horaires</span><strong id="drawer-horaires">—</strong>
+    </div>
+  </div>
+  <div class="drawer-divider"></div>
+  <div class="drawer-section">
+    <h4>Motifs fréquents</h4>
+    <div id="drawer-symptomes" class="symptomes-grid"></div>
+  </div>
+  <button id="drawer-btn-rdv" class="btn-rdv-drawer">Prendre rendez-vous pour ce service</button>
+</div>
+
+<!-- ============================================================
+     BARRE DE NAVIGATION
+     ============================================================ -->
+<nav class="nav-bar" role="navigation" aria-label="Navigation principale">
+  <button class="nav-item active" data-page="p-accueil">
+    <div class="nav-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z" stroke-width="1.8"/></svg>
+    </div>
+    <span class="nav-label">Accueil</span>
+  </button>
+  <button class="nav-item" data-page="p-services">
+    <div class="nav-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <span class="nav-label">Services</span>
+  </button>
+  <button class="nav-item" data-page="p-medecins">
+    <div class="nav-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke-width="1.8"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <span class="nav-label">Médecins</span>
+  </button>
+  <button class="nav-item" data-page="p-rdv">
+    <div class="nav-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.8"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <span class="nav-label">RDV</span>
+  </button>
+  <button class="nav-item" data-page="p-urgence">
+    <div class="nav-icon-wrap" style="position:relative;">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="nav-urgence-dot"></span>
+    </div>
+    <span class="nav-label">Urgence</span>
+  </button>
+</nav>
+
+<script src="js/app.js"></script>
+</body>
+</html>

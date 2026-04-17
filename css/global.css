@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   KABINET MEDICAL KISSAL — global.css
+   Variables, Reset, Typographie, Utilitaires
+   ============================================ */
+
+:root {
+  /* Couleurs principales */
+  --bleu:          #1A5C8A;
+  --bleu-fonce:    #0D3D5F;
+  --bleu-clair:    #E8F4FD;
+  --bleu-mid:      #3A87C8;
+  --vert:          #2A9D6B;
+  --vert-fonce:    #1A6B48;
+  --vert-clair:    #E6F7F0;
+  --rouge:         #DC2626;
+  --rouge-clair:   #FEF2F2;
+  --orange:        #EA580C;
+  --orange-clair:  #FFF7ED;
+  --violet-clair:  #F5F3FF;
+  --violet:        #7C3AED;
+
+  /* Neutres */
+  --blanc:         #FAFCFF;
+  --gris-1:        #F3F6FA;
+  --gris-2:        #E5EAF0;
+  --gris-3:        #CBD5E0;
+  --gris-4:        #94A3B8;
+  --gris-5:        #64748B;
+  --texte:         #1E293B;
+  --texte-doux:    #475569;
+
+  /* Espacements */
+  --esp-xs:  6px;
+  --esp-sm:  10px;
+  --esp-md:  16px;
+  --esp-lg:  24px;
+  --esp-xl:  32px;
+
+  /* Border radius */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-full: 999px;
+
+  /* Ombres */
+  --ombre-sm:  0 2px 8px rgba(26,92,138,0.08);
+  --ombre-md:  0 4px 20px rgba(26,92,138,0.12);
+  --ombre-lg:  0 8px 40px rgba(26,92,138,0.16);
+
+  /* Transitions */
+  --t-fast:  0.15s ease;
+  --t-med:   0.25s ease;
+  --t-slow:  0.4s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ---- RESET ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--blanc);
+  color: var(--texte);
+  max-width: 430px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+img { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, select, textarea { font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+/* ---- TYPOGRAPHIE ---- */
+.font-display { font-family: 'Cormorant Garamond', serif; }
+h1, h2, h3 { line-height: 1.2; }
+
+/* ---- UTILITAIRES ---- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.badge-bleu  { background: var(--bleu-clair);   color: var(--bleu); }
+.badge-vert  { background: var(--vert-clair);   color: var(--vert-fonce); }
+.badge-rouge { background: var(--rouge-clair);  color: var(--rouge); }
+
+.dispo-indicator {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--gris-5);
+}
+.dispo-indicator::before {
+  content: '';
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--vert);
+  flex-shrink: 0;
+}
+.dispo-indicator.indispo::before { background: var(--gris-3); }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.08); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.05); }
+  70%       { transform: scale(1); }
+}
+
+.animate-fadeup { animation: fadeUp var(--t-slow) both; }
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+.delay-5 { animation-delay: 0.40s; }
+
+/* ---- PAGE LAYOUT ---- */
+.page {
+  display: none;
+  min-height: calc(100dvh - 72px);
+  padding-bottom: 80px;
+  animation: fadeIn 0.3s ease;
+}
+.page.active { display: block; }
+
+/* ---- PAGE HEADER GÉNÉRIQUE ---- */
+.page-header {
+  background: linear-gradient(150deg, var(--bleu) 0%, var(--bleu-fonce) 100%);
+  padding: 36px var(--esp-md) 28px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 35px solid rgba(255,255,255,0.05);
+  top: -60px; right: -60px;
+  pointer-events: none;
+}
+.page-header .label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+}
+.page-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700;
+  color: #fff;
+}
+.page-header p {
+  font-size: 14px; color: rgba(255,255,255,0.65);
+  margin-top: 6px; line-height: 1.5;
+}

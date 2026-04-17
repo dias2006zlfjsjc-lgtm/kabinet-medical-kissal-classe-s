@@ -1,0 +1,74 @@
+/* ============================================
+   KABINET MEDICAL KISSAL — nav.css
+   Barre de navigation mobile (bas de page)
+   ============================================ */
+
+.nav-bar {
+  position: fixed;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100%; max-width: 430px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--gris-2);
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 4px 10px;
+  z-index: 999;
+  box-shadow: 0 -4px 24px rgba(26,92,138,0.07);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 2px 2px;
+  border-radius: var(--r-md);
+  transition: background var(--t-fast);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item:active { background: var(--gris-1); }
+
+.nav-icon-wrap {
+  width: 36px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r-sm);
+  transition: background var(--t-med), transform var(--t-fast);
+}
+
+.nav-item.active .nav-icon-wrap {
+  background: var(--bleu-clair);
+  transform: translateY(-2px);
+}
+
+.nav-item svg {
+  width: 20px; height: 20px;
+  stroke: var(--gris-4);
+  transition: stroke var(--t-med);
+}
+
+.nav-item.active svg { stroke: var(--bleu); }
+
+.nav-label {
+  font-size: 10px; font-weight: 500;
+  color: var(--gris-4);
+  transition: color var(--t-med);
+  white-space: nowrap;
+}
+
+.nav-item.active .nav-label { color: var(--bleu); font-weight: 600; }
+
+/* Indicateur rouge pour urgences */
+.nav-urgence-dot {
+  position: absolute;
+  top: 4px; right: calc(50% - 14px);
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rouge);
+  border: 1.5px solid #fff;
+}
