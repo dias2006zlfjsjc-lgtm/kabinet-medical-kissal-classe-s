@@ -1,74 +1,66 @@
-/* ============================================
-   KABINET MEDICAL KISSAL — nav.css
-   Barre de navigation mobile (bas de page)
-   ============================================ */
+/* =============================================
+   KABINET MEDICAL KISSAL
+   nav.css — Barre navigation mobile bas
+   ============================================= */
 
-.nav-bar {
+.nav {
   position: fixed;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
+  bottom: 0; left: 50%; transform: translateX(-50%);
   width: 100%; max-width: 430px;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--gris-2);
-  display: flex;
-  align-items: flex-end;
-  padding: 6px 4px 10px;
-  z-index: 999;
-  box-shadow: 0 -4px 24px rgba(26,92,138,0.07);
+  height: var(--nav-h);
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 8px env(safe-area-inset-bottom, 0);
+  z-index: 900;
+  box-shadow: 0 -2px 16px rgba(21,88,168,.06);
 }
 
 .nav-item {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  padding: 6px 2px 2px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 4px 4px;
   border-radius: var(--r-md);
-  transition: background var(--t-fast);
+  text-decoration: none;
+  transition: background .15s;
   position: relative;
-  -webkit-tap-highlight-color: transparent;
 }
+.nav-item:active { background: var(--bleu-xlight); }
 
-.nav-item:active { background: var(--gris-1); }
-
-.nav-icon-wrap {
+.nav-icon {
   width: 36px; height: 28px;
   display: flex; align-items: center; justify-content: center;
   border-radius: var(--r-sm);
-  transition: background var(--t-med), transform var(--t-fast);
+  transition: background .2s, transform .2s;
 }
-
-.nav-item.active .nav-icon-wrap {
-  background: var(--bleu-clair);
+.nav-item.actif .nav-icon {
+  background: var(--bleu-light);
   transform: translateY(-2px);
 }
 
 .nav-item svg {
   width: 20px; height: 20px;
-  stroke: var(--gris-4);
-  transition: stroke var(--t-med);
+  stroke: var(--txt-4);
+  fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
+  transition: stroke .2s;
 }
+.nav-item.actif svg { stroke: var(--bleu); }
 
-.nav-item.active svg { stroke: var(--bleu); }
-
-.nav-label {
-  font-size: 10px; font-weight: 500;
-  color: var(--gris-4);
-  transition: color var(--t-med);
+.nav-lbl {
+  font-size: 10px; font-weight: 600;
+  color: var(--txt-4);
+  transition: color .2s;
   white-space: nowrap;
 }
+.nav-item.actif .nav-lbl { color: var(--bleu); }
 
-.nav-item.active .nav-label { color: var(--bleu); font-weight: 600; }
-
-/* Indicateur rouge pour urgences */
-.nav-urgence-dot {
-  position: absolute;
-  top: 4px; right: calc(50% - 14px);
-  width: 7px; height: 7px;
-  border-radius: 50%;
+/* Point rouge urgence */
+.nav-dot {
+  position: absolute; top: 7px; right: calc(50% - 17px);
+  width: 8px; height: 8px; border-radius: 50%;
   background: var(--rouge);
-  border: 1.5px solid #fff;
+  border: 2px solid #fff;
+  animation: beat 2.5s ease-in-out infinite;
 }

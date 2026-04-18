@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1558A8" />
+  <meta name="description" content="Kabinet Medical Kissal — Prendre rendez-vous en ligne." />
+  <title>Rendez-vous — Kabinet Medical Kissal</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/rdv.css" />
+</head>
+<body>
+
+<main>
+
+  <header class="pg-head">
+    <p class="eyebrow">En ligne · Rapide · Simple</p>
+    <h1>Prendre rendez-vous</h1>
+    <p>Remplissez le formulaire. Confirmation par SMS sous 30 minutes.</p>
+  </header>
+
+  <!-- FORMULAIRE -->
+  <div id="rdv-form-inner">
+    <form class="rdv-form" onsubmit="return false;" novalidate>
+
+      <div class="fg">
+        <label for="rdv-nom">Votre nom complet</label>
+        <div class="fi-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/>
+          </svg>
+          <input id="rdv-nom" class="fi" type="text" placeholder="Ex : Moussa Diallo" autocomplete="name" />
+        </div>
+      </div>
+
+      <div class="fg">
+        <label for="rdv-tel">Numéro de téléphone</label>
+        <div class="fi-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <input id="rdv-tel" class="fi" type="tel" placeholder="+221 77 000 00 00" autocomplete="tel" />
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>Choisir un médecin</label>
+        <div id="med-picker" class="med-picker"></div>
+      </div>
+
+      <div class="date-row">
+        <div class="fg">
+          <label for="rdv-date">Date</label>
+          <input id="rdv-date" class="fi" type="date" />
+        </div>
+        <div class="fg">
+          <label for="rdv-heure">Heure</label>
+          <select id="rdv-heure" class="fs">
+            <option value="08h00">08h00</option>
+            <option value="09h30">09h30</option>
+            <option value="11h00">11h00</option>
+            <option value="14h00">14h00</option>
+            <option value="15h30">15h30</option>
+            <option value="17h00">17h00</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label for="rdv-motif">Motif de consultation</label>
+        <textarea id="rdv-motif" class="fta" placeholder="Décrivez brièvement votre motif…"></textarea>
+      </div>
+
+      <div class="recap">
+        <p class="recap-titre">Récapitulatif</p>
+        <div class="recap-row"><span class="rk">Patient</span><span class="rv" id="recap-nom">—</span></div>
+        <div class="recap-row"><span class="rk">Médecin</span><span class="rv" id="recap-med">—</span></div>
+        <div class="recap-row"><span class="rk">Date</span><span class="rv" id="recap-date">—</span></div>
+        <div class="recap-row"><span class="rk">Heure</span><span class="rv" id="recap-heure">—</span></div>
+        <div class="recap-row"><span class="rk">Motif</span><span class="rv" id="recap-motif">—</span></div>
+      </div>
+
+      <button type="button" class="btn-bleu" onclick="confirmerRDV()">
+        <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.4"/></svg>
+        Confirmer le rendez-vous
+      </button>
+
+    </form>
+  </div>
+
+  <!-- SUCCÈS -->
+  <div id="rdv-succes" class="succes-wrap" role="alert" aria-live="polite">
+    <div class="succes-ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+    <h2>Demande envoyée !</h2>
+    <p>Votre rendez-vous a bien été enregistré. Vous recevrez une confirmation par SMS sous 30 minutes.</p>
+    <a href="index.html" class="btn-retour">← Retour à l'accueil</a>
+  </div>
+
+</main>
+
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <a class="nav-item" href="index.html">
+    <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/></svg></div>
+    <span class="nav-lbl">Accueil</span>
+  </a>
+  <a class="nav-item" href="services.html">
+    <div class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div>
+    <span class="nav-lbl">Services</span>
+  </a>
+  <a class="nav-item" href="medecins.html">
+    <div class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg></div>
+    <span class="nav-lbl">Médecins</span>
+  </a>
+  <a class="nav-item actif" href="rdv.html" aria-current="page">
+    <div class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+    <span class="nav-lbl">RDV</span>
+  </a>
+  <a class="nav-item" href="urgences.html">
+    <div class="nav-icon" style="position:relative;"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg><span class="nav-dot"></span></div>
+    <span class="nav-lbl">Urgence</span>
+  </a>
+</nav>
+
+<script src="js/rdv.js"></script>
+</body>
+</html>

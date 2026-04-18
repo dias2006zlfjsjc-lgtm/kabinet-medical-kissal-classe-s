@@ -1,0 +1,180 @@
+/* =============================================
+   KABINET MEDICAL KISSAL
+   pages.css — Médecins · À propos · Contact
+   ============================================= */
+
+/* ========================
+   MÉDECINS
+   ======================== */
+.doc-liste { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.doc-card {
+  background: var(--blanc);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 18px 16px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.doc-card:hover { border-color: var(--bleu-mid); box-shadow: var(--shadow-sm); }
+
+.doc-card .ava { width: 58px; height: 58px; font-size: 18px; }
+
+.doc-info { flex: 1; min-width: 0; }
+.doc-info h3 { font-size: 15px; font-weight: 700; color: var(--txt-1); }
+.doc-info .spec {
+  display: inline-block; margin: 6px 0 5px;
+  border-radius: var(--r-full); padding: 3px 10px;
+  font-size: 11px; font-weight: 700;
+}
+.doc-info .jours {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--txt-3);
+}
+.doc-info .jours svg { width: 13px; height: 13px; stroke: var(--txt-4); fill: none; stroke-linecap: round; flex-shrink: 0; }
+.doc-info .badge-dispo { margin-top: 6px; display: inline-flex; }
+
+.doc-rdv-btn {
+  align-self: center; flex-shrink: 0;
+  background: var(--bleu-light); color: var(--bleu);
+  border-radius: var(--r-full); padding: 9px 15px;
+  font-size: 12px; font-weight: 700;
+  text-decoration: none;
+  transition: background .14s, transform .13s;
+  display: inline-block;
+}
+.doc-rdv-btn:active { transform: scale(.96); background: var(--bleu); color: #fff; }
+
+/* ========================
+   À PROPOS
+   ======================== */
+.apropos-body { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+.quote-box {
+  background: linear-gradient(135deg, var(--bleu-xlight) 0%, var(--vert-light) 100%);
+  border-radius: var(--r-lg);
+  padding: 22px 20px; text-align: center;
+  border: 1px solid rgba(21,88,168,.09);
+}
+.quote-box q {
+  font-family: var(--font-display);
+  font-size: 19px; font-style: italic;
+  color: var(--bleu); line-height: 1.5; quotes: none;
+}
+
+.prose-box {
+  background: var(--blanc);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 18px 16px;
+  font-size: 13.5px; line-height: 1.8; color: var(--txt-2);
+}
+.prose-box strong { color: var(--txt-1); font-weight: 700; }
+
+.val-titre {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 700;
+  color: var(--txt-1);
+}
+
+.val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.val-card {
+  background: var(--blanc);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 16px; text-align: center;
+}
+.val-ico {
+  width: 42px; height: 42px; border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
+}
+.val-ico svg { width: 22px; height: 22px; fill: none; stroke-linecap: round; stroke-width: 1.8; }
+.val-card h3 { font-size: 13px; font-weight: 700; color: var(--txt-1); }
+.val-card p  { font-size: 11.5px; color: var(--txt-3); margin-top: 4px; line-height: 1.4; }
+
+.apropos-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bleu); color: #fff;
+  border-radius: var(--r-lg);
+  padding: 16px 20px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  transition: background .14s, transform .13s;
+}
+.apropos-cta:active { background: var(--bleu-hover); transform: scale(.98); }
+.apropos-cta svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-linecap: round; stroke-width: 2; flex-shrink: 0; }
+
+/* ========================
+   CONTACT
+   ======================== */
+.contact-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.contact-row {
+  background: var(--blanc);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px;
+  text-decoration: none;
+  transition: border-color .15s, background .13s;
+}
+.contact-row:active { background: var(--bleu-xlight); border-color: var(--bleu-mid); }
+
+.contact-ico {
+  width: 48px; height: 48px; border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.contact-ico svg { width: 23px; height: 23px; fill: none; stroke-linecap: round; stroke-width: 1.8; }
+
+.contact-row h4 {
+  font-size: 10.5px; font-weight: 700;
+  color: var(--txt-4); letter-spacing: .5px; text-transform: uppercase;
+}
+.contact-row p { font-size: 15px; font-weight: 600; color: var(--txt-1); margin-top: 2px; }
+
+.map-box {
+  background: linear-gradient(135deg, var(--bleu-xlight), var(--vert-light));
+  border-radius: var(--r-lg); height: 172px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 9px;
+  border: 1.5px solid var(--border); cursor: pointer;
+  text-decoration: none;
+  transition: opacity .14s;
+}
+.map-box:active { opacity: .85; }
+.map-box svg   { width: 34px; height: 34px; stroke: var(--bleu-mid); fill: none; stroke-linecap: round; stroke-width: 1.5; }
+.map-box span  { font-size: 13px; font-weight: 600; color: var(--txt-3); }
+
+.horaires-box {
+  background: var(--blanc);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+}
+.horaires-head {
+  padding: 16px;
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 700;
+  color: var(--txt-1);
+  border-bottom: 1px solid var(--border);
+}
+.h-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.h-row:last-child { border-bottom: none; }
+.h-row .hj { color: var(--txt-2); font-weight: 500; }
+.h-row .hh { font-weight: 700; color: var(--txt-1); }
+.h-row .hf { font-weight: 700; color: var(--rouge); }
+
+.btn-urg-contact {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--rouge-light); color: var(--rouge);
+  border: 1.5px solid #F5BBBB;
+  border-radius: var(--r-lg); padding: 15px 20px;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  transition: background .14s, transform .13s;
+}
+.btn-urg-contact:active { background: #FACACA; transform: scale(.98); }
+.btn-urg-contact svg { width: 18px; height: 18px; stroke: var(--rouge); fill: none; stroke-linecap: round; stroke-width: 2; }

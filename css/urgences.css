@@ -1,0 +1,116 @@
+/* =============================================
+   KABINET MEDICAL KISSAL
+   urgences.css — Page urgences
+   ============================================= */
+
+/* ---- HERO ---- */
+.urg-hero {
+  background: linear-gradient(150deg, #C62828 0%, #821414 55%, #500D0D 100%);
+  padding: 44px 20px 36px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.urg-hero::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 240px; height: 240px; border-radius: 50%;
+  border: 44px solid rgba(255,255,255,.05);
+  pointer-events: none;
+}
+
+/* Pulsation */
+.pulse-wrap { position: relative; width: 92px; height: 92px; margin: 0 auto 22px; }
+.pulse-core {
+  width: 92px; height: 92px; border-radius: 50%;
+  background: rgba(255,255,255,.14);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+}
+.pulse-core svg {
+  width: 40px; height: 40px;
+  stroke: #fff; fill: none; stroke-linecap: round; stroke-width: 2.6;
+}
+.pulse-r1, .pulse-r2 {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,.38);
+  animation: pulse 2.4s ease-out infinite;
+}
+.pulse-r2 { animation-delay: 1.2s; }
+
+.urg-hero h1 {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: #fff; margin-bottom: 9px;
+}
+.urg-hero p { font-size: 13.5px; color: rgba(255,255,255,.68); line-height: 1.65; }
+
+.btn-tel {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: #fff; color: var(--rouge);
+  border-radius: var(--r-full);
+  padding: 15px 28px;
+  font-size: 19px; font-weight: 800; letter-spacing: .1px;
+  margin-top: 22px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.22);
+  text-decoration: none;
+  transition: transform .13s;
+  display: block; width: fit-content; margin: 22px auto 0;
+}
+.btn-tel:active { transform: scale(.97); }
+.btn-tel svg { width: 22px; height: 22px; stroke: var(--rouge); fill: none; stroke-linecap: round; stroke-width: 2; }
+
+/* ---- CORPS ---- */
+.urg-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.urg-lbl {
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--txt-4); padding: 4px 0;
+}
+
+/* Contacts urgents */
+.urg-contacts { display: flex; flex-direction: column; gap: 8px; }
+.urg-contact {
+  background: var(--rouge-light); border: 1px solid #F5BBBB;
+  border-radius: var(--r-md); padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+  transition: background .14s;
+}
+.urg-contact:active { background: #FACACA; }
+.urg-contact svg { width: 20px; height: 20px; stroke: var(--rouge); fill: none; stroke-linecap: round; stroke-width: 1.8; flex-shrink: 0; }
+.urg-contact h4 { font-size: 13px; font-weight: 700; color: var(--rouge); }
+.urg-contact p  { font-size: 12px; color: #8B1A1A; margin-top: 2px; }
+
+/* Steps */
+.step {
+  background: var(--blanc); border: 1.5px solid var(--border);
+  border-radius: var(--r-lg); padding: 16px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.step-n {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--rouge-light); color: var(--rouge);
+  font-size: 15px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.step h3 { font-size: 14px; font-weight: 700; color: var(--txt-1); }
+.step p  { font-size: 12.5px; color: var(--txt-3); margin-top: 3px; line-height: 1.55; }
+
+/* Alerte */
+.urg-alerte {
+  background: var(--orange-light); border: 1.5px solid #FBBF8A;
+  border-radius: var(--r-lg); padding: 16px;
+}
+.urg-alerte-head {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 800; color: var(--orange); margin-bottom: 10px;
+}
+.urg-alerte-head svg { width: 17px; height: 17px; stroke: var(--orange); fill: none; stroke-linecap: round; stroke-width: 1.8; }
+.urg-alerte ul { display: flex; flex-direction: column; gap: 6px; }
+.urg-alerte li {
+  font-size: 12.5px; color: #7A3100;
+  padding-left: 16px; position: relative; line-height: 1.5;
+}
+.urg-alerte li::before { content: '✕'; position: absolute; left: 0; color: var(--orange); font-size: 10px; font-weight: 900; top: 1px; }
