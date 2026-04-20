@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendre un rendez-vous</title>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+     <section class="barre">
+     <h1>Bienvenue au Cabinet Médical KISSAL</h1>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Nos Services</a></li>
+                <li><a href="about.html">À propos de nous</a></li>
+            </ul>
+    </section>
+    <br>
+    <section class="rendez-vous">
+        <h2 style="text-align: center; margin-top:35px;">Prendre un rendez-vous</h2>
+        <form  class="rendez-vous-form">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Date du rendez-vous:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="heure">Heure du rendez-vous:</label>
+            <input type="time" id="heure" name="heure" required>
+            
+            <label for="motif">Motif de la consultation:</label>
+            <textarea id="motif" name="motif" rows="4" required></textarea>
+
+            <button type="submit">Prendre rendez-vous</button>
+        </form>
+    </section>
+    
+</body>
+<footer>
+    <p>&copy; 2024 Cabinet Médical KISSAL. Tous droits réservés.</p>
+</footer>
+</html>
